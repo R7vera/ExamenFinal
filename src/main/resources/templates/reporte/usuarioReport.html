@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reporte de Usuarios</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		/* Estilos personalizados adicionales */
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+		.table-container {
+			overflow-x: auto;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+		.table {
+			width: 100%;
+			border-collapse: collapse;
+			background-color: #fff;
+			border: 1px solid #e0e0e0;
+		}
+		.table th, .table td {
+			padding: 12px;
+			text-align: left;
+			border-bottom: 1px solid #f0f0f0;
+		}
+		.table th {
+			background-color: #4C6EF5;
+			color: #fff;
+			font-weight: 600;
+		}
+		.table td {
+			color: #333;
+		}
+		.table tr:hover {
+			background-color: #f9fafb;
+		}
+		.heading {
+			text-align: center;
+			font-size: 32px;
+			color: #4C6EF5;
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+		.date {
+			font-size: 16px;
+			color: #6366f1;
+			margin-bottom: 1rem;
+		}
+	</style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+	<div class="container">
+		<!-- Título del reporte -->
+		<h1 class="heading">Reporte de Usuarios</h1>
+
+		<!-- Fecha del reporte -->
+		<p class="date">Fecha: <span th:text="${fecha}"></span></p>
+		
+		<!-- Listado de Usuarios -->
+		<h3 class="text-2xl font-semibold text-gray-700 mb-6">Listado de Usuarios:</h3>
+		
+		<!-- Tabla con Tailwind CSS y estilos personalizados -->
+		<div class="table-container">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Correo</th>
+						<th>Rol</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${registros}">
+						<td th:text="${user.id}"></td>
+						<td th:text="${user.nombre}"></td>
+						<td th:text="${user.correo}"></td>
+						<td th:text="${user.rol}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
+
+</html>
+
